@@ -21,6 +21,7 @@ const winningConditions = [
 ];
 
 function cellClick(clickedCellEvent) {
+
     const clickedCell = clickedCellEvent.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('value'));
 
@@ -57,6 +58,7 @@ function resultValidation() {
         statusDisplay.innerHTML = winningMessage();
         statusDisplay.style.color = 'red'
         gameActive = false;
+        document.querySelectorAll('.cell').forEach(cell => cell.classList.add('inactive'));
         return;
     }
 
@@ -66,6 +68,7 @@ function resultValidation() {
         statusDisplay.innerHTML = drawMessage();
         statusDisplay.style.color = 'yellow'
         gameActive = false;
+        document.querySelectorAll('.cell').forEach(cell => cell.classList.add('inactive'));
         return;
     }
 
@@ -85,6 +88,7 @@ function handleRestartGame() {
     statusDisplay.innerHTML = currentPlayerTurn();
     statusDisplay.style.color = 'white'
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+    document.querySelectorAll('.cell').forEach(cell => cell.classList.remove('inactive'));
 }
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellClick));
 document.querySelector('.game-restart').addEventListener('click', handleRestartGame);

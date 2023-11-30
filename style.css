@@ -36,6 +36,11 @@ h1 {
     color: black;
     transition: 0.5s;
 }
+.cell.inactive:hover {
+    background-color: black; /* Set the background color to the same as the default state */
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+}
 .game-restart {
     border-radius: 10px;
     font-size: 20px;
